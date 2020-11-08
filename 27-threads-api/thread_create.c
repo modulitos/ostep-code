@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     myarg_t args;
     args.a = 10;
     args.b = 20;
-    rc = pthread_create(%p, NULL, mythread, %args);
+    rc = pthread_create(&p, NULL, mythread, &args);
     assert(rc == 0);
     (void) pthread_join(p, NULL);
     printf("done\n");

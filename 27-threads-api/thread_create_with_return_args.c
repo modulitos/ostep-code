@@ -19,6 +19,16 @@ void* mythread(void *arg) {
     rvals->x = 1;
     rvals->y = 2;
     return (void*) rvals;
+
+    // Be careful with how values are returned from a thread. In particular,
+    // never return a pointer which refers to something allocated on the
+    // thread's call stack.
+
+    // myret_t rvals; // ALLOCATED ON STACK: BAD!
+    // rvals.x = 1;
+    // rvals.y = 2;
+    // // This results in a seg fault!
+    // return (void*) &rvals; // warning: address of stack memory associated with local variable 'rvals' returned
 }
 
 int main(int argc, char* argv[]) {

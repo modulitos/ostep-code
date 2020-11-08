@@ -11,11 +11,12 @@ PROGRAMS  := ${SRCS:.c=}
 .PHONY: all
 all: ${PROGRAMS}
 
-${PROGRAMS} : % : %.o Makefile
-	${CC} $< -o $@ -pthread
+${PROGRAMS} : % : %.c Makefile
+	${CC} $< -o $@.o -pthread
 
 clean:
 	rm -f ${PROGRAMS} ${OBJS}
 
-%.o: %.c Makefile
-	${CC} ${CFLAGS} -c $<
+# We don't need this?
+#%.o: %.c Makefile
+#	${CC} ${CFLAGS} -c $<
