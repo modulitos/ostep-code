@@ -39,6 +39,7 @@ int List_Insert(list_t *L, int key) {
   return 0; // success
 }
 
+// returns -1 if not found, 1 if found.
 int List_Lookup(list_t *L, int key) {
   pthread_mutex_lock(&L->lock);
   node_t *curr = L->head;

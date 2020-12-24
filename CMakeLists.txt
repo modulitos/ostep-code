@@ -29,6 +29,7 @@ add_executable(27_threads_api_thread_create_with_return_args 27-threads-api/thre
 add_executable(29-lock-based-concurrent-data-structures_counter 29-lock-based-concurrent-data-structures/test_counters.c)
 add_executable(29-lock-based-concurrent-data-structures_linked_list 29-lock-based-concurrent-data-structures/test_linked_lists.c)
 add_executable(29-lock-based-concurrent-data-structures_queues 29-lock-based-concurrent-data-structures/test_queues.c)
+add_executable(29-lock-based-concurrent-data-structures_hash_tables 29-lock-based-concurrent-data-structures/test_hash_tables.c)
 
 # Another example of setting multiple files into a single executable:
 set(SOURCE_FILES main.c intro/cpu.c intro/mem.c intro/threads.c intro/common_threads.h intro/io.c)
