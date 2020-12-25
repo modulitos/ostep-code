@@ -16,11 +16,14 @@ int main() {
   assert(List_Lookup(p, 2) == 0);
   printf("lookup of 2 succeeds after inserting.\n");
 
-  // note that this only frees the head, not the second node on the linked list!
-  // (we can verify this with valgrind/ASAN)
+  assert(List_Lookup(p, 9) == -1);
+  List_Insert(p, 7);
+  List_Insert(p, 8);
+  List_Insert(p, 9);
+  List_Insert(p, 10);
+  List_Insert(p, 11);
+  assert(List_Lookup(p, 9) == 0);
 
-  // TODO: add a function to free all nodes in the list
-
-  free(p->head);
+  List_Free(p);
   return 0;
 }

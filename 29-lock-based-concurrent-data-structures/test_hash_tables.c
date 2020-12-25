@@ -22,6 +22,6 @@ int main() {
 
   printf("\nfinished testing hash tables!\n");
 
-  // TODO: free the hash table by freeing all linked lists
+  Hash_Free(hp);
   return 0;
 }

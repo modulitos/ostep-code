@@ -55,3 +55,14 @@ int List_Lookup(list_t *L, int key) {
   pthread_mutex_unlock(&L->lock);
   return rv;
 }
+
+void List_Free(list_t *L) {
+  pthread_mutex_lock(&L->lock);
+  node_t *curr = L->head;
+  while (curr) {
+    node_t *old = curr;
+    curr = curr->next;
+    free(old);
+  }
+  pthread_mutex_unlock(&L->lock);
+}

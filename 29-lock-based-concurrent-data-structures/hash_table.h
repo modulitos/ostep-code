@@ -27,3 +27,10 @@ int Hash_Lookup(hash_t *H, int key) {
   int bucket = key % BUCKETS;
   return List_Lookup(&H->lists[bucket], key);
 }
+
+void Hash_Free(hash_t *H) {
+  int i;
+  for (i = 0; i < BUCKETS; i++) {
+    List_Free(&H->lists[i]);
+  }
+}
